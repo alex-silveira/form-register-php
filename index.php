@@ -1,3 +1,2 @@
 <?php
-	require_once('controllers/register.php');
-?>
+	require_once('views/Register.php');

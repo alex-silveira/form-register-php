@@ -18,27 +18,24 @@
         }
         .card{
             margin: 0 auto;
-            width:  28rem;
-            height: 555px;
+            width: 40%;
+            height: 565px;
+            min-width: 300px;
         }
         form{
-            padding: 2rem;
+            padding: 20px;
         }
         #signup{
             width: 100%;
-            height: 4rem;
+            height: 60px;
         }
-		.form-group{
-			margin-top: 10px;
-		}
+
         .jumbotron{
-            height: 230px;
+            height: 60px;
             background-color: #15152b;
             color: #fff;
         }
-        .jumbotron div p{
-            margin-top: 50px;
-        }
+
         .jumbotron div p a{
            width: 11rem;
         }
@@ -50,11 +47,22 @@
 				padding: 15px;
 				margin: 5px;
 		}
+		#forgot{
+			margin-top: 10px;
+		}
+
+        .btn{
+            width: 100%;
+        }
+        #back{
+            margin-top: 280px;
+        }
+
     </style>
     <body>
     <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">NOME DO SERVIDOR</h1>
+          <!-- <h1 class="jumbotron-heading">NOME DO SERVIDOR</h1> -->
           <p>
             <a href="#" class="btn btn-primary my-2">Download</a>
             <a href="#" class="btn btn-secondary my-2">Site</a>
@@ -81,33 +89,8 @@
 					}
 				?>
 				
-			<form method="post" action="controllers/cCadastrar.php">
-				<div class="form-group">
-					<label>Usuário *</label>
-					<input type="text" name="user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-				</div>
-
-				<div class="form-group">
-					<label>E-mail *</label>
-					<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-				</div>
-
-				<div class="form-group">
-					<label>Senha *</label>
-					<input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-				</div>
-
-				<div class="form-group">
-					<label>Repita a senha *</label>
-					<input type="password" name="cPassword" class="form-control" id="exampleInputPassword1" required>
-				</div>
-
-				<div class="row" id="button"> 
-					<div class="col">
-						<button id="signup" type="submit" class="btn btn-success my-2">REGISTRAR</button>
-					</div>   
-				</div>    
-			</form>
+			<div id="main">	
+			</div>
 		</div>
 
         <footer class="text-muted">
@@ -115,6 +98,9 @@
                 <p>Copyright - NOME DO SERVIDOR 2020</p>
             </div>
         </footer>
-        <script src="views/js/bootstrap.min.js" async defer></script>
+		<script src="views/js/jquery-3.5.1.min.js"></script>
+        <script src="views/js/bootstrap.min.js"></script>
+		<script src="views/js/forms.js"></script>
+		
     </body>
 </html>

@@ -28,14 +28,13 @@
     $key = $usuario->generateKey( $gEmail);
 
     $msg =  "<h1>Clique no link abaixo para resetar sua senha</h1>".
-            "<a href=https://www.google.com.br/?key=$key>Clique aqui e será redirecionado para página de recuperação!</a>";
-
+            "<a href=http://hero.com.br:82/views/resetPassword.php?key=$key>Clique aqui e será redirecionado para página de recuperação!</a>";
 
     try{
         if($validacao->validarEmail($gEmail)){
             if($usuario->verificarEmail($gEmail)){
                 $usuario->sendEmail($mail, $msg);
-                $usuario->updateResetPasswordCode($key);
+                $usuario->updateResetPasswordCode($key, $gEmail);
             }
         }
     }

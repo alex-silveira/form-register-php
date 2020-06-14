@@ -1,5 +1,7 @@
 {
     "require": {
-        "ramsey/uuid": "^4.0"
+        "phpmailer/phpmailer": "^6.1",
+        "ramsey/uuid": "^4.0",
+        "league/oauth2-client": "^2.4"
     }
 }
