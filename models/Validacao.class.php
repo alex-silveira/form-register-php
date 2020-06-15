@@ -64,12 +64,12 @@ class Validacao{
             header("Location: ../index.php?msg=$msg");
             return false;
         }
-        if(strlen($password) < 4 && strlen($password) > 18){
+        else if(strlen($password) < 4 && strlen($password) > 18){
             $msg = "A senha deve conter no mínino 4 caracteres e no máximo 18";
             header("Location: ../index.php?msg=$msg");
             return false;
         }
-        if(strlen($cPassword) < 4 && strlen($cPassword) > 18 ){
+        else if(strlen($cPassword) < 4 && strlen($cPassword) > 18 ){
             $msg = "A confirmação da senha deve conter no mínino 4 caracteres e no máximo 18";
             header("Location: ../index.php?msg=$msg");
             return false;
