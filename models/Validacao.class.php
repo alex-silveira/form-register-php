@@ -74,7 +74,7 @@ class Validacao{
             header("Location: ../index.php?msg=$msg");
             return false;
         }
-        if($password != $cPassword){
+        else if($password != $cPassword){
             $msg = "As senhas não são iguais!";
             header("Location: ../index.php?msg=$msg");
             return false;
