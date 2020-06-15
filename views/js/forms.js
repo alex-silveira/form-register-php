@@ -1,6 +1,6 @@
 $(function() {
    
-   $("#main").load("http://hero.com.br:82/views/formRegister.html");
+   $("#main").load("http://hero.com.br:82/views/formRegister.php");
    
    $(document).on("click","#forgotPassword",function(){
 		$("#main").load("http://hero.com.br:82/views/formforgotPassword.html");
@@ -15,7 +15,7 @@ $(function() {
    });
 
   if($(".alert").length){
-      $(".alert").fadeOut(5500);
+     // $(".alert").fadeOut(5500);
   }
 
 

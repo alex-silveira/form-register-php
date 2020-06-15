@@ -23,9 +23,9 @@
 
     $usuario->setEmail($mail);
 
-    $gEmail = $usuario->getEmail($mail);
+    $gEmail = $usuario->getEmail();
 
-    $key = $usuario->generateKey( $gEmail);
+    $key = $usuario->generateKey($gEmail);
 
     $msg =  "<h1>Clique no link abaixo para resetar sua senha</h1>".
             "<a href=http://hero.com.br:82/views/resetPassword.php?key=$key>Clique aqui e será redirecionado para página de recuperação!</a>";

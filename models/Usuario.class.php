@@ -37,7 +37,7 @@ class Usuario{
     }
 
     public function setUser($userName) {
-        $this->user = trim($userName);
+        $this->user = $userName;
     }
 
 	public function getPassword() {
@@ -45,7 +45,7 @@ class Usuario{
     }
 
     public function setPassword($userPassword) {
-        $this->password = trim($userPassword);
+        $this->password = $userPassword;
     }
 
 	public function getcPassword() {
@@ -53,7 +53,7 @@ class Usuario{
     }
 
     public function setcPassword($usercPassword) {
-        $this->cPassword = trim($usercPassword);
+        $this->cPassword =$usercPassword;
     }
 
 	public function getUserType() {
@@ -101,8 +101,8 @@ class Usuario{
     }
 
     public function setEmail($userEmail) {
-        $email = filter_var($userEmail, FILTER_SANITIZE_EMAIL);
-        $this->mail = trim($email);
+        $email = $userEmail;
+        $this->mail =$email;
     }
 
 	public function getCreateAt() {

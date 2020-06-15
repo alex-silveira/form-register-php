@@ -19,7 +19,7 @@
         .card{
             margin: 0 auto;
             width: 40%;
-            height: 565px;
+            height: 650px;
             min-width: 300px;
         }
         form{
@@ -89,7 +89,7 @@
 					}
 				?>
 				
-			<div id="main">	
+			<div id="main">
 			</div>
 		</div>
 

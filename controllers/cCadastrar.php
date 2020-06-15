@@ -29,17 +29,6 @@
 	$password = $usuario->anti_injection($_POST["password"]);
 	$cPassword = $usuario->anti_injection($_POST["cPassword"]);
 
-	if(strlen($password) < 4 || strlen($password) > 18 || strlen($cPassword) < 4 || strlen($cPassword) > 18 ){
-		$msg = "A senha deve conter no mínino 4 caracteres e no máximo 18";
-		header("Location: ../index.php?msg=$msg");
-		return false;
-	}
-	if($password != $cPassword){
-		$msg = "As senhas não são iguais!";
-		header("Location: ../index.php?msg=$msg");
-		return false;
-	}
-
 	$passwordHash = hash('sha256',$password);
 
 	$uuid = $usuario->generateUuid($user_name);
@@ -59,19 +48,24 @@
 	$usuario->setEmail($mail);
 	$usuario->setCreateAt($timeStamp);
 
-	$gUserName =  $usuario->getUser($user_name);
-	$gPassword =  $usuario->getPassword($password);
-	$gcPassword = $usuario->getcPassword($cPassword);
-	$gEmail = $usuario->getEmail($mail);
-	$msg = utf8_encode($msg);
+	$gUserName =  $usuario->getUser();
+	$gPassword =  $usuario->getPassword();
+	$gcPassword = $usuario->getcPassword();
+	$gEmail = $usuario->getEmail();
+
+	$captcha = $usuario->anti_injection($_POST["captcha"]);
+    $result = $usuario->anti_injection($_POST["captchaResult"]);
 
 	try{
-		if($validacao->validarNomeUsuario($gUserName) && $validacao->validarEmail($gEmail) && $validacao->validarSenha($gPassword, $gcPassword)){
-			if($usuario->verificarUsuario($gUserName, $gEmail)){
-				$cadastrar = $usuario->Cadastrar($usuario);
-				$msg = "Cadastro realizado com sucesso!";
-				header("Location: ../index.php?msg=$msg");
-			}
+		if($validacao->validarNomeUsuario($gUserName) && $validacao->validarEmail($gEmail) && $validacao->validarSenha($password, $cPassword)){
+			if($validacao->validarCapatcha($captcha, $result)) {
+                if ($usuario->verificarUsuario($gUserName, $gEmail)) {
+                    $cadastrar = $usuario->Cadastrar($usuario);
+                    $msg = "Cadastro realizado com sucesso!";
+                    utf8_encode($msg);
+                    header("Location: ../index.php?msg=$msg");
+                }
+            }
 		}
 	}
 	catch(Exception $e)

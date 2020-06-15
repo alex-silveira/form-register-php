@@ -26,8 +26,8 @@
     $usuario->setPassword($password);
     $usuario->setcPassword($cPassword);
 
-    $gPassword = $usuario->getPassword($password);
-    $gcPassword = $usuario->getcPassword($cPassword);
+    $gPassword = $usuario->getPassword();
+    $gcPassword = $usuario->getcPassword();
 
     if($validacao->validarSenha($gPassword, $gcPassword)){
         if($usuario->verificarKey($key)){
