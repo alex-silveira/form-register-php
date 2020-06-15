@@ -216,7 +216,7 @@ class Usuario{
         if(!$row){
             $msg = "Este email não está cadastrado!";
             utf8_encode($msg);
-            header("Location: ../index.php?msg=$msg");
+            header("Location: ../index.php?page=2&msg=$msg");
             return false;
         }
 
@@ -321,7 +321,7 @@ class Usuario{
 
         if($com->rowCount() > 0){
             $msg = "Um link de recuperação de senha foi enviado para seu e-mail!";
-            header("Location: ../index.php?msg=$msg");
+            header("Location: ../index.php?page=2&msg=$msg");
         }
     }
 
