@@ -4,10 +4,13 @@ $(function() {
     var page = GetParameterValues('page');
 
     if(page == 2){
-        $("#main").load("http://hero.com.br:82/views/formforgotPassword.html");
+        $("#main").load("http://hero.com.br:82/views/formforgotPassword.php");
     }
     else if(page == 3){
-        $("#main").load("http://hero.com.br:82/views/formforgotUser.html");
+        $("#main").load("http://hero.com.br:82/views/formforgotUser.php");
+    }
+    else if(page == 4){
+        //$("#main").load("http://hero.com.br:82/views/formResetPassword.php");
     }
     else{
         $("#main").load("http://hero.com.br:82/views/formRegister.php");
@@ -15,15 +18,15 @@ $(function() {
 
    
    $(document).on("click","#forgotPassword",function(){
-		$("#main").load("http://hero.com.br:82/views/formforgotPassword.html");
+		$("#main").load("http://hero.com.br:82/views/formforgotPassword.php");
    });
    
    $(document).on("click","#forgotUser",function(){
-		$("#main").load("http://hero.com.br:82/views/formforgotUser.html");
+		$("#main").load("http://hero.com.br:82/views/formforgotUser.php");
    });
    
    $(document).on("click","#back",function(){
-		$("#main").load("http://hero.com.br:82/views/formRegister.html");
+		$("#main").load("http://hero.com.br:82/views/formRegister.php");
    });
 
   if($(".alert").length){

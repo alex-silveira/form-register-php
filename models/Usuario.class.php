@@ -235,7 +235,7 @@ class Usuario{
         if($row){
             $msg = "Você já utilizou esse código!";
             utf8_encode($msg);
-            header("Location: ../index.php?msg=$msg");
+            header("Location: ../index.php?page=4&msg=$msg");
             return false;
         }
 
@@ -333,7 +333,7 @@ class Usuario{
 
         if($com->rowCount() > 0){
             $msg = "Senha Atualizada com sucesso!";
-            header("Location: ../index.php?msg=$msg");
+            header("Location: ../index.php?page=4&msg=$msg");
         }
     }
 

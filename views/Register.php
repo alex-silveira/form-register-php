@@ -60,6 +60,7 @@
 
     </style>
     <body>
+    <head>
     <section class="jumbotron text-center">
         <div class="container">
           <!-- <h1 class="jumbotron-heading">NOME DO SERVIDOR</h1> -->
@@ -88,7 +89,23 @@
 				<?php
 					}
 				?>
-				
+
+            <?php
+                if(isset($_GET['page'])){
+                    if($_GET['page'] == 4)
+                    {
+                        $key = "";
+
+                        if(isset($_GET['key']))
+                        {
+                            $key = $_GET['key'];
+                        }
+
+                        require_once('formResetPassword.php');
+                    }
+                }
+            ?>
+
 			<div id="main">
 			</div>
 		</div>

@@ -28,13 +28,18 @@
     $key = $usuario->generateKey($gEmail);
 
     $msg =  "<h1>Clique no link abaixo para resetar sua senha</h1>".
-            "<a href=http://hero.com.br:82/views/resetPassword.php?key=$key>Clique aqui e será redirecionado para página de recuperação!</a>";
+            "<a href=http://hero.com.br:82/index.php?page=4&key=$key>Clique aqui e será redirecionado para página de recuperação!</a>";
+
+    $captcha = $usuario->anti_injection($_POST["captcha"]);
+    $result = $usuario->anti_injection($_POST["captchaResult"]);
 
     try{
         if($validacao->validarEmail($gEmail)){
-            if($usuario->verificarEmail($gEmail)){
-                $usuario->sendEmail($mail, $msg);
-                $usuario->updateResetPasswordCode($key, $gEmail);
+            if($validacao->validarCapatcha($captcha, $result, 4, 0)) {
+                if ($usuario->verificarEmail($gEmail)) {
+                    $usuario->sendEmail($mail, $msg);
+                    $usuario->updateResetPasswordCode($key, $gEmail);
+                }
             }
         }
     }

@@ -9,12 +9,13 @@
         echo $e;
     }
 
-    if(!isset($_GET['key']))
+    if(!isset($_GET['key']) && !isset($_POST['password']) && !isset($_POST['cPassword']) && !isset($_POST['captcha']))
     {
         $msg = "Operação inválida!";
-        header("Location: ../index.php?msg=$msg");
+        header("Location: ../index.php?page=4&msg=$msg");
         return false;
     }
+
 
     $validacao = new Validacao;
     $usuario = new Usuario;
@@ -29,9 +30,16 @@
     $gPassword = $usuario->getPassword();
     $gcPassword = $usuario->getcPassword();
 
-    if($validacao->validarSenha($gPassword, $gcPassword)){
-        if($usuario->verificarKey($key)){
-            $usuario->updatePassword($gPassword, $key);
+    $captcha = $usuario->anti_injection($_POST["captcha"]);
+    $result = $usuario->anti_injection($_POST["captchaResult"]);
+
+    if($validacao->validarSenha($gPassword, $gcPassword, 4, $key)){
+        if($validacao->validarCapatcha($captcha, $result, 4, $key)) {
+            if($validacao->validarKey($key)){
+                if ($usuario->verificarKey($key)) {
+                    $usuario->updatePassword($gPassword, $key);
+                }
+            }
         }
     }
 

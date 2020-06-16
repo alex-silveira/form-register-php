@@ -19,14 +19,7 @@
         <input type="password" name="cPassword" class="form-control" placeholder="Confirme sua senha" required>
     </div>
 
-    <?php
-        $n1 = rand(1, 100);
-        $n2 = rand(1, 100);
-        $result = $n1 + $n2;
-    ?>
-
-    <p class="text-center">Qual o resultado de <?php echo $n1." + ". $n2 ?><input class="form-control" type="text" name="captcha"/></p>
-    <input type="hidden" id="result" name="captchaResult" value="<?php echo $result ?>"/>
+    <?php require_once('recaptcha.php')?>
 
     <div class="row" id="button">
         <div class="col-12">

@@ -57,7 +57,7 @@
     $result = $usuario->anti_injection($_POST["captchaResult"]);
 
 	try{
-		if($validacao->validarNomeUsuario($gUserName) && $validacao->validarEmail($gEmail) && $validacao->validarSenha($password, $cPassword)){
+		if($validacao->validarNomeUsuario($gUserName) && $validacao->validarEmail($gEmail) && $validacao->validarSenha($password, $cPassword,2, 0)){
 			if($validacao->validarCapatcha($captcha, $result)) {
                 if ($usuario->verificarUsuario($gUserName, $gEmail)) {
                     $cadastrar = $usuario->Cadastrar($usuario);
